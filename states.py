@@ -1,9 +1,10 @@
 from aiogram.fsm.state import StatesGroup, State
 
 class OrderState(StatesGroup):
-    ism = State()
-    telefon = State()
-    xizmat = State()
-    izoh = State()
+    name = State()         # Ism olish
+    phone = State()        # Telefon raqam olish
+    service = State()      # Xizmat turini tanlash
+    description = State()  # Buyurtma tavsifini olish
+
 class PaymentState(StatesGroup):
-    screenshot = State()
+    screenshot = State()   # To'lov chekini olish
