@@ -5,3 +5,5 @@ class OrderState(StatesGroup):
     telefon = State()
     xizmat = State()
     izoh = State()
+class PaymentState(StatesGroup):
+    screenshot = State()
