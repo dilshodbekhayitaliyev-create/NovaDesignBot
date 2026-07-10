@@ -162,3 +162,17 @@ async def handle_payment_status(call: CallbackQuery):
         await bot.send_message(client_id, "❌ **NovaDesign:** Afsuski, yuborgan chekingiz tasdiqlanmadi. Iltimos, qaytadan tekshirib yuboring yoki admin bilan bog'laning.")
         
     await call.answer()
+# Eski main.py ichidagi buyurtma tugash qismida:
+# ...
+order_id = db.add_order(message.from_user.id, data['name'], data['phone'], data['service'], data['description'])
+
+for admin in config.ADMINS:
+    try:
+        # FAQAT SHU YERIGA kb.admin_order_buttons(order_id) QO'SHILDI
+        await bot.send_message(
+            chat_id=admin, 
+            text=admin_text, 
+            reply_markup=kb.admin_order_buttons(order_id)
+        )
+    except Exception as e:
+        print(f"Xato: {e}")
